@@ -7,11 +7,14 @@ import json
 #     "user_first_name" : user_first_name,
 # }
 
+newId = '5'
+newName = 'Mari'
+
 try:   
     db = pymysql.connect(host="localhost", port=8889,user="root",password="root", database="twitter")
     cur = db.cursor() #cursorClass in PyMyPy by default generates Dictionary as output
     sql = """INSERT INTO users (user_id, user_first_name) VALUES (%s, %s)"""
-    val = ('5', 'Mari')
+    val = (newId, newName)
     cur.execute(sql, val)
     db.commit()
 except Exception as ex:
